@@ -61,11 +61,9 @@ namespace GuessingGame.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-#if DEBUG
             kernel.Bind<IRandomNumberGenerator>().To<BasicRandomNumberGenerator>().Named("BasicRNG");
-#else
+
             kernel.Bind<IRandomNumberGenerator>().To<AdvancedRandomNumberGenerator>().Named("AdvancedRNG");
-#endif
         }        
     }
 }
